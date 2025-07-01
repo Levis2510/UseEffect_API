@@ -19,7 +19,6 @@ const readProducts = () => {
         return [];
     }
 };
-
 const writeProducts = (products) => {
     try {
         console.log('📁 Đang ghi vào:', dataPath);
@@ -30,6 +29,19 @@ const writeProducts = (products) => {
         console.error('❌ Không ghi được file:', err);
     }
 };
+app.delete('/api/products/:id', (req, res) => {
+    const id = parseInt(req.params.id);
+    let products = readProducts();
+    const newProducts = products.filter(p => p.id !== id);
+
+    if (newProducts.length === products.length) {
+        return res.status(404).json({ message: 'Không tìm thấy sản phẩm' });
+    }
+
+    writeProducts(newProducts);
+    console.log(`🗑️ Đã xóa sản phẩm có id ${id}`);
+    res.status(204).send();
+});
 
 app.get('/api/products', (req, res) => {
     const products = readProducts();

@@ -40,6 +40,17 @@ const handleAddProduct = async () => {
     console.error('❌ Lỗi khi gửi API:', err);
   }
 };
+const handleDelete = async (id) => {
+  if (!window.confirm('Bạn có chắc chắn muốn xóa sản phẩm này?')) return;
+
+  try {
+    await axios.delete(`http://localhost:3000/api/products/${id}`);
+    setProducts(products.filter(p => p.id !== id));
+  } catch (err) {
+    console.error('❌ Lỗi khi xóa sản phẩm:', err);
+  }
+};
+
   if (loading) return <p className="text-center">Đang tải...</p>
   if (error) return <p className="text-red-500 text-center">{error}</p>
 
@@ -77,6 +88,7 @@ const handleAddProduct = async () => {
             <th className="px-4 py-2 text-left">Thứ tự</th>
             <th className="px-4 py-2 text-center">Tên sản phẩm</th>
             <th className="px-4 py-2 text-right">Giá</th>
+            <th className="px-4 py-2 text-center w-10"></th>
           </tr>
         </thead>
         <tbody>
@@ -85,6 +97,12 @@ const handleAddProduct = async () => {
               <td className="px-4 py-2 text-left">{index + 1}</td>
               <td className="px-4 py-2 text-center">{product.name}</td>
               <td className="px-4 py-2 text-right">{product.price.toFixed(3)}VND</td>
+              <td className="px-4 py-2 text-center">
+              <button
+              onClick={() => handleDelete(product.id)}
+              className="text-red-500 text-xl font-bold hover:text-red-900"
+              title="Xóa sản phẩm">×</button>
+              </td>
             </tr>
           ))}
         </tbody>

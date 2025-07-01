@@ -16,7 +16,22 @@
   },
   {
     "id": 4,
-    "name": "áo ",
-    "price": 123
+    "name": "giày sneaker",
+    "price": 1231
+  },
+  {
+    "id": 5,
+    "name": "váy",
+    "price": 222
+  },
+  {
+    "id": 6,
+    "name": "boots",
+    "price": 1231
+  },
+  {
+    "id": 7,
+    "name": "áo lv",
+    "price": 12333
   }
 ]
