@@ -1,0 +1,22 @@
+[
+  {
+    "id": 1,
+    "name": "Áo thun",
+    "price": 100
+  },
+  {
+    "id": 2,
+    "name": "Quần jean",
+    "price": 200
+  },
+  {
+    "id": 3,
+    "name": "Mũ lưỡi trai",
+    "price": 50
+  },
+  {
+    "id": 4,
+    "name": "áo ",
+    "price": 123
+  }
+]
