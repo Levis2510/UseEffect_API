@@ -5,7 +5,6 @@ const ProductTable = () => {
   const [products, setProducts] = useState([])
   const [loading, setLoading] = useState(true)
   const [error, setError] = useState(null)
-
   const [newProduct, setNewProduct] = useState({ name: '', price: '' })
 
   useEffect(() => {
@@ -77,7 +76,7 @@ const handleDelete = async (id) => {
         </div>
         <button
           onClick={handleAddProduct}
-          className="bg-blue-500 text-white px-4 py-2 rounded hover:bg-blue-600">
+          className="bg-blue-500 text-white px-4 py-2 rounded-xl hover:bg-blue-800">
           Thêm
         </button>
       </div>

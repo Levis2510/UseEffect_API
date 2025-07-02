@@ -2,10 +2,8 @@ const express = require('express');
 const cors = require('cors');
 const fs = require('fs');
 const path = require('path');
-
 const app = express();
 const port = 3000;
-
 const dataPath = path.join(__dirname, 'products.json');
 
 app.use(cors());

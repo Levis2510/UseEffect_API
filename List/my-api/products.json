@@ -1,37 +1,12 @@
 [
   {
     "id": 1,
-    "name": "Áo thun",
-    "price": 100
+    "name": "Áo ",
+    "price": 123
   },
   {
     "id": 2,
-    "name": "Quần jean",
-    "price": 200
-  },
-  {
-    "id": 3,
-    "name": "Mũ lưỡi trai",
-    "price": 50
-  },
-  {
-    "id": 4,
-    "name": "giày sneaker",
-    "price": 1231
-  },
-  {
-    "id": 5,
-    "name": "váy",
-    "price": 222
-  },
-  {
-    "id": 6,
-    "name": "boots",
-    "price": 1231
-  },
-  {
-    "id": 7,
-    "name": "áo lv",
-    "price": 12333
+    "name": "Quần ",
+    "price": 110
   }
 ]
