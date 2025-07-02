@@ -8,5 +8,25 @@
     "id": 2,
     "name": "Quần ",
     "price": 110
+  },
+  {
+    "id": 3,
+    "name": "Váy",
+    "price": 100
+  },
+  {
+    "id": 4,
+    "name": "Túi",
+    "price": 90
+  },
+  {
+    "id": 5,
+    "name": "Balo",
+    "price": 82
+  },
+  {
+    "id": 6,
+    "name": "Giầy ",
+    "price": 1111
   }
 ]

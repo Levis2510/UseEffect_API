@@ -60,7 +60,7 @@ const handleDelete = async (id) => {
           <label className="block mb-1">Tên sản phẩm</label>
           <input
             type="text"
-            className="border rounded px-2 py-1"
+            className="border rounded px-2 py-1 focus:border-sky-700"
             value={newProduct.name}
             onChange={(e) => setNewProduct({ ...newProduct, name: e.target.value })}
           />
@@ -69,7 +69,7 @@ const handleDelete = async (id) => {
           <label className="block mb-1">Giá</label>
           <input
             type="number"
-            className="border rounded px-2 py-1"
+            className="border rounded px-2 py-1 focus:border-sky-500"
             value={newProduct.price}
             onChange={(e) => setNewProduct({ ...newProduct, price: e.target.value })}
           />
