@@ -8,26 +8,38 @@ function App() {
   const [password, setPassword] = useState('');
   const [message, setMessage] = useState('');
 
-  const handleLogin = (e) => {
-    e.preventDefault();
-    const users = JSON.parse(localStorage.getItem('users')) || [];
-    const user = users.find(
-      (u) => u.username === username.trim() && u.password === password.trim()
-    );
+  const handleLogin = async (e) => {
+  e.preventDefault();
 
-    if (user) {
+  try {
+    const response = await fetch('http://localhost:3001/api/login', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify({
+        username: username.trim(),
+        password: password.trim()
+      })
+    });
+
+    const result = await response.json();
+
+    if (response.status === 200) {
       setMessage('✅ Đăng nhập thành công!');
-      setTimeout(() => {
-        navigate('/home'); 
-      }, 1000);
+      localStorage.setItem('loggedInUser', JSON.stringify({ username }));
+      navigate('/home');
     } else {
-      setMessage('❌ Sai tên đăng nhập hoặc mật khẩu!');
+      setMessage(`❌ ${result.error || 'Đăng nhập thất bại'}`);
     }
-  };
-
+  } catch (error) {
+    console.error('Lỗi khi kết nối:', error);
+    setMessage('❌ Không kết nối được đến server');
+  }
+};
   const handleRegister = () => {
-    navigate('/register'); 
-  };
+  navigate('/register');
+};
 
   return (
     <div className="min-h-screen bg-gradient-to-br from-blue-100 to-blue-300 flex items-center justify-center px-4">

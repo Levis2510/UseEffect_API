@@ -39,6 +39,23 @@ app.post('/register', (req, res) => {
 
     res.json({ message: '✅Đăng ký thành công!' });
 });
+app.get('/api/users', (req, res) => {
+    const users = readUsers();
+    res.json(users);
+});
+
+app.post('/api/login', (req, res) => {
+    const { username, password } = req.body;
+    const users = readUsers();
+
+    const user = users.find(u => u.username === username && u.password === password);
+
+    if (!user) {
+        return res.status(401).json({ error: 'Sai tên đăng nhập hoặc mật khẩu!' });
+    }
+
+    res.status(200).json({ message: '✅ Đăng nhập thành công!' });
+});
 
 app.listen(PORT, () => {
     console.log(`🚀 Server running at http://localhost:${PORT}`);

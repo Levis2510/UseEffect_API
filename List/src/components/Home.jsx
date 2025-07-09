@@ -5,6 +5,7 @@ function App() {
   const navigate = useNavigate(); 
 
   const handleExit = () => {
+    localStorage.removeItem('loggedInUser');
     navigate('/'); 
   };
 
