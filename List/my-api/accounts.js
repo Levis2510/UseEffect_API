@@ -26,7 +26,7 @@ const writeUsers = (users) => {
     fs.writeFileSync(USERS_FILE, JSON.stringify(users, null, 2));
 };
 
-app.post('/register', (req, res) => {
+app.post('/api/register', (req, res) => {
     const { username, password } = req.body;
     const users = readUsers();
 
@@ -36,8 +36,8 @@ app.post('/register', (req, res) => {
 
     users.push({ username, password });
     writeUsers(users);
+    res.status(201).json({ message: '✅Đăng ký thành công!' });
 
-    res.json({ message: '✅Đăng ký thành công!' });
 });
 app.get('/api/users', (req, res) => {
     const users = readUsers();
