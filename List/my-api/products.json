@@ -1,17 +1,12 @@
 [
   {
-    "id": 4,
-    "name": "Túi",
-    "price": 90
+    "id": 1,
+    "name": "Quần ",
+    "price": 123
   },
   {
-    "id": 5,
-    "name": "Balo",
-    "price": 82
-  },
-  {
-    "id": 8,
-    "name": "q",
-    "price": 1
+    "id": 2,
+    "name": "Áo",
+    "price": 122
   }
 ]
