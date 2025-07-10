@@ -77,7 +77,7 @@ function Register() {
         {error && <p className="text-red-500 text-sm mb-2">{error}</p>}
         {message && <p className="text-green-600 text-sm mb-2">{message}</p>}
 
-        <button type="submit" className="bg-green-500 text-white p-2 w-full rounded">
+        <button type="submit" className="bg-cyan-500 text-white p-2 w-full rounded">
           Đăng ký
         </button>
       </form>
