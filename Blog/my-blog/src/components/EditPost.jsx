@@ -45,7 +45,7 @@ function EditPost() {
   };
 
   return (
-    <div className="p-4 max-w-md mx-auto">
+    <div className="p-4 max-w-md mx-auto bg-teal-50 shadow rounded-lg">
       <h2 className="text-2xl font-bold text-slate-700 mb-4">Sửa bài viết</h2>
       <form onSubmit={handleUpdate}>
         <input

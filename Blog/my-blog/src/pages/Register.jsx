@@ -44,8 +44,8 @@ function Register() {
   };
 
   return (
-    <div className="p-4 max-w-md mx-auto">
-      <h2 className="text-2xl text-slate-700 font-bold mb-4">Đăng ký</h2>
+    <div className="p-4 max-w-md mx-auto bg-teal-50 shadow rounded-lg">
+      <h2 className="text-3xl text-green-600 font-bold mb-6 text-center">Đăng ký</h2>
       <form onSubmit={handleRegister}>
         <label className="block font-semibold mb-1">Email</label>
         <input
@@ -77,7 +77,7 @@ function Register() {
         {error && <p className="text-red-500 text-sm mb-2">{error}</p>}
         {message && <p className="text-green-600 text-sm mb-2">{message}</p>}
 
-        <button type="submit" className="bg-cyan-500 text-white p-2 w-full rounded">
+        <button type="submit" className="bg-cyan-500 hover:bg-gray-400 text-white p-2 w-full rounded">
           Đăng ký
         </button>
       </form>

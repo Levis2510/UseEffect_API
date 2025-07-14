@@ -30,8 +30,8 @@ function CreatePost() {
   };
 
   return (
-    <div className="p-4">
-      <h2 className="text-4xl text-slate-700 font-bold mb-4">Tạo bài viết</h2>
+    <div className="p-4 bg-teal-50 shadow rounded-lg">
+      <h2 className="text-4xl text-green-500 font-bold mb-4">Tạo bài viết</h2>
       <form onSubmit={handleSubmit}>
         <input
           className="border p-2 mb-2 w-full"
