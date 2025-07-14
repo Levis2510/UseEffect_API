@@ -44,7 +44,7 @@ function PostList() {
         <h1 className="text-4xl font-bold text-green-500 mb-4">📖 Bài viết</h1>
         <button
           onClick={handleLogout}
-          className="bg-cyan-500 hover:bg-gray-400 text-black px-4 py-1 rounded"
+          className="bg-cyan-500 hover:bg-gray-400 text-fuchsia-700 px-4 py-1 rounded"
         >
           🔚Đăng xuất
         </button>
