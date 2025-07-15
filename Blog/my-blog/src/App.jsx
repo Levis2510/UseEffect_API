@@ -16,7 +16,6 @@ function App() {
         <Navbar />
         <main className="flex-grow container mx-auto p-4">
           <Routes>
-            {/* Mặc định redirect về /login */}
             <Route path="/" element={<Navigate to="/login" replace />} />
 
             <Route path="/home" element={<Home />} />
