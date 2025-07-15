@@ -24,7 +24,7 @@ function CreatePost() {
   if (!response.ok) throw new Error('Lỗi upload ảnh');
 
   const data = await response.json();
-  return data.imageUrl; // server trả về URL ảnh
+  return data.imageUrl; 
 };
 
     const handleImageChange = (e) => {

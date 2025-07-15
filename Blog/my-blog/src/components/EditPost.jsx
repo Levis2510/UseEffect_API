@@ -13,9 +13,8 @@ function EditPost() {
   const [imageFile, setImageFile] = useState(null);
   const [previewUrl, setPreviewUrl] = useState('');
   const [originalImageUrl, setOriginalImageUrl] = useState('');
-  const [removeImage, setRemoveImage] = useState(false); 
+  const [removeImage, setRemoveImage] = useState(false);  
 
-  // Hàm upload ảnh qua server Node.js
   const uploadImage = async (file) => {
     const formData = new FormData();
     formData.append('image', file);
@@ -31,7 +30,20 @@ function EditPost() {
     return data.imageUrl;
   };
 
-  // Load bài viết
+  const deleteImageFromServer = async (url) => {
+  try {
+    const filename = url.split('/').pop(); 
+    const res = await fetch(`http://localhost:5000/delete-image?filename=${filename}`, {
+      method: 'DELETE',
+    });
+    if (!res.ok) throw new Error('Lỗi xóa ảnh từ server');
+    console.log('Đã xóa ảnh khỏi server');
+  } catch (err) {
+    console.error('❌ Không thể xóa ảnh:', err);
+  }
+};
+
+
   useEffect(() => {
     const fetchPost = async () => {
       try {
@@ -66,41 +78,49 @@ function EditPost() {
     }
   };
 
-  const handleRemoveImage = () => {
-    setImageFile(null);
-    setPreviewUrl('');
-    setRemoveImage(true); 
-  };
+  const handleRemoveImage = async () => {
+  if (originalImageUrl) {
+    await deleteImageFromServer(originalImageUrl);
+  }
+  setImageFile(null);
+  setPreviewUrl('');
+  setRemoveImage(true);
+};
 
-  const handleUpdate = async (e) => {
-    e.preventDefault();
-    if (!title || !content) {
-      setMessage('⚠️ Vui lòng nhập tiêu đề và nội dung.');
-      return;
-    }
 
-    try {
-      setMessage('Đang cập nhật...');
-      let imageUrl = originalImageUrl;
+const handleUpdate = async (e) => {
+  e.preventDefault();
+  if (!title || !content) {
+    setMessage('⚠️ Vui lòng nhập tiêu đề và nội dung.');
+    return;
+  }
 
-      if (removeImage) {
-        imageUrl = ''; // xóa ảnh
-      } else if (imageFile) {
-        imageUrl = await uploadImage(imageFile); // upload ảnh mới
+  try {
+    setMessage('Đang cập nhật...');
+    let imageUrl = originalImageUrl;
+
+    if (removeImage) {
+      if (originalImageUrl) {
+        await deleteImageFromServer(originalImageUrl); // ✅ Xóa ảnh thật
       }
-
-      await updateDoc(doc(db, 'posts', id), {
-        title,
-        content,
-        imageUrl,
-      });
-
-      setMessage('✅ Cập nhật thành công!');
-      setTimeout(() => navigate('/posts'), 1000);
-    } catch (error) {
-      setMessage('❌ Lỗi cập nhật: ' + error.message);
+      imageUrl = '';
+    } else if (imageFile) {
+      imageUrl = await uploadImage(imageFile); 
     }
-  };
+
+    await updateDoc(doc(db, 'posts', id), {
+      title,
+      content,
+      imageUrl,
+    });
+
+    setMessage('✅ Cập nhật thành công!');
+    setTimeout(() => navigate('/posts'), 1000);
+  } catch (error) {
+    setMessage('❌ Lỗi cập nhật: ' + error.message);
+  }
+};
+
 
   if (loading) {
     return (
