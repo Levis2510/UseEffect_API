@@ -105,7 +105,7 @@ function Login() {
 
         <button
           type="submit"
-          className="bg-cyan-500 hover:bg-gray-400 text-white p-2 w-full rounded disabled:bg-cyan-300"
+          className="bg-cyan-500 hover:bg-gray-400 text-white p-2 w-full rounded disabled:bg-cyan-300 cursor-pointer"
           disabled={!email || !password || loading}
         >
           {loading ? 'Đang đăng nhập...' : 'Đăng nhập'}

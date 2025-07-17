@@ -95,7 +95,7 @@ function CreatePost() {
           )}
         </div>
         {message && <p className="text-red-500 text-sm">{message}</p>}
-        <button className="bg-blue-500 hover:bg-blue-600 text-white px-4 py-2 rounded w-fit self-end">
+        <button className="bg-blue-500 hover:bg-blue-600 text-white px-4 py-2 rounded w-fit self-end cursor-pointer">
           Đăng bài
         </button>
       </form>

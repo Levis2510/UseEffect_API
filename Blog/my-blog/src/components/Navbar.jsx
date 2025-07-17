@@ -29,7 +29,7 @@
           <h1 className="font-bold text-3xl">
             <Link to="/home">My Blog</Link>
           </h1>
-          <div className="sm:hidden">
+          <div className="sm:hidden cursor-pointer">
             <button onClick={() => setIsOpen(!isOpen)}>
               {isOpen ? '✖' : '☰'}
             </button>
@@ -44,22 +44,22 @@
                 navigate('/login');
                 }
               }}
-               className="hover:underline text-left"
+               className="hover:underline text-left cursor-pointer"
              >
             Trang chủ
             </button>
 
               {user && (
-              <Link to="/create" className="hover:underline">Tạo bài viết</Link>
+              <Link to="/create" className="hover:underline cursor-pointer">Tạo bài viết</Link>
               )}
 
             {!user ? (
             <>
-              <Link to="/login" className="hover:underline">Đăng nhập</Link>
-              <Link to="/register" className="hover:underline">Đăng ký</Link>
+              <Link to="/login" className="hover:underline cursor-pointer">Đăng nhập</Link>
+              <Link to="/register" className="hover:underline cursor-pointer">Đăng ký</Link>
             </>
              ) : (
-           <button onClick={handleLogout} className="hover:underline text-left">
+           <button onClick={handleLogout} className="hover:underline text-left cursor-pointer">
               Đăng xuất
             </button>
               )}

@@ -41,39 +41,41 @@ function PostList() {
   return (
     <div className="flex flex-col gap-6 px-4 py-6 max-w-4xl mx-auto bg-teal-50 shadow rounded-lg">
       <div className="flex flex-col sm:flex-row justify-between items-center gap-4">
-        <h1 className="text-3xl sm:text-4xl font-bold text-green-500 text-center sm:text-left">
+        <h1 className="text-3xl sm:text-4xl font-bold text-green-800 text-center sm:text-left">
           📖 Bài viết
         </h1>
         <button
           onClick={handleLogout}
-          className="bg-cyan-500 hover:bg-cyan-600 text-white px-4 py-2 rounded text-sm sm:text-base"
+          className="bg-cyan-500 hover:bg-cyan-600 text-white px-4 py-2 rounded text-sm sm:text-base cursor-pointer"
         >
           🔚 Đăng xuất
         </button>
       </div>
 
-      <ul className="space-y-4">
+      <ul className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
         {Array.isArray(posts) && posts.map((post) => (
           <li key={post.id}>
-            <div className="bg-white flex flex-col shadow-md rounded-xl p-4 border border-gray-200 hover:shadow-lg transition">
+            <div className="bg-white flex flex-col shadow-md rounded-xl p-4 border border-gray-200 hover:shadow-lg transition min-h-[320px]">
               {post.imageUrl && (
                 <img
                   src={post.imageUrl}
                   alt="Ảnh bài viết"
-                  className="w-full h-auto max-h-[500px] sm:max-h-[600px] object-contain rounded mb-4"
+                  className="w-full h-48 sm:h-52 object-cover rounded-lg shadow-md mb-4 mx-auto transition-transform duration-200 hover:scale-105 cursor-pointer"
+                  onClick={() => navigate(`/post/${post.id}`)}
                 />
               )}
-              <h2 className="text-xl sm:text-2xl font-semibold text-green-600 mb-2">📝 {post.title}</h2>
-              <p className="text-gray-700 text-sm sm:text-base">{post.content}</p>
+              <h2 className="text-2xl sm:text-4xl font-semibold text-green-600 mb-2 hover:scale-105 cursor-pointer"
+                  onClick={() => navigate(`/post/${post.id}`)}
+              >📝 {post.title}</h2>
               <div className="mt-4 flex flex-wrap justify-end gap-2">
                 <button
-                  className="bg-yellow-500 hover:bg-yellow-600 text-white px-4 py-1 rounded text-sm"
+                  className="bg-yellow-500 hover:bg-yellow-600 text-white px-4 py-1 rounded text-sm cursor-pointer"
                   onClick={() => navigate(`/edit/${post.id}`)}
                 >
                   ✏️ Sửa
                 </button>
                 <button
-                  className="bg-red-500 hover:bg-red-600 text-white px-4 py-1 rounded text-sm"
+                  className="bg-red-500 hover:bg-red-600 text-white px-4 py-1 rounded text-sm cursor-pointer"
                   onClick={() => handleDelete(post.id)}
                 >
                   🗑️ Xóa

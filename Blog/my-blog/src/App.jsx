@@ -8,6 +8,7 @@ import Login from './pages/Login';
 import Navbar from './components/Navbar';
 import Footer from './components/Footer';
 import PrivateRoute from './components/PrivateRoute';
+import PostDetail from './components/PostDetail';
 
 function App() {
   return (
@@ -21,6 +22,8 @@ function App() {
             <Route path="/home" element={<Home />} />
             <Route path="/login" element={<Login />} />
             <Route path="/register" element={<Register />} />
+            <Route path="/post/:id" element={<PostDetail />} />
+
 
             <Route
               path="/create"
